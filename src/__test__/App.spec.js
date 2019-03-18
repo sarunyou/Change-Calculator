@@ -19,7 +19,14 @@ test('It should render form', () => {
   expect(input).toBeDefined()
 })
 
-test('It should render result', () => {
+test('It should not allow letters to be inputted', () => {
+  const {input} = setup()
+  expect(input.value).toBe('')
+  fireEvent.change(input, {target: {value: 'Good Day'}})
+  expect(input.value).toBe('') 
+})
+
+test('It should render result after inputted number and clicked', () => {
   const { input, getByTestId } = setup()
   const result = getByTestId('convert-result')
   const buttonSubmit = getByTestId("convert-submit-button");

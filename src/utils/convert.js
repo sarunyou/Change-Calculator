@@ -68,16 +68,19 @@ const getNewLabel = ({ result, rate , remain, label}) => {
   const hasMore = `${remain > 0 ? ',' : ''}`
   return  `${tempLabel} ${value} ${unit}${hasMore}`
 } 
+const divideFloor = (a, b) => Math.floor(a / b)
+const minusFixed = (a, b, fixedNumber = 2) => Number((a - b).toFixed(fixedNumber)) 
+
 const convert = (number) => {
   if (!_.isNumber(number)) return "Expected Input is number"
   if (number <= 0) return "Your change is 0 bill"
   
   let remain = _.clone(number)
   return rates.reduce((acc, rate) => {
-    const result = Math.floor(remain / rate.value) 
+    const result = divideFloor(remain, rate.value)
     if (result > 0) {
       const minusNumber =  result * rate.value
-      remain = Number((remain - minusNumber).toFixed(2))
+      remain = minusFixed(remain, minusNumber)
       return getNewLabel({ result, rate,  remain, label: acc}) 
     }
     return acc
