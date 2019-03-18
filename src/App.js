@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
 import ConvertForm from './components/ConvertForm'
 import convert from './utils/convert'
+import styled from 'styled-components'
+const Container = styled.div`
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Margarine';
+`
+const Title = styled.p`
+  color: gray;
+  font-size: 24px;
+`
+const TextResult = styled.p`
+`
 
 class App extends Component {
   state = {
@@ -17,14 +32,15 @@ class App extends Component {
   render() {
     const { result } = this.state
     return (
-      <div className="App">
+      <Container >
+        <Title>Change Calculator</Title>
         <ConvertForm 
           onClickSubmit={this.handleOnClickConvert}
         />
-        <span data-testid="convert-result">
+        <TextResult data-testid="convert-result">
         {result}
-        </span>
-      </div>
+        </TextResult>
+      </Container>
     );
   }
 }

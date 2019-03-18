@@ -19,7 +19,7 @@ test('It should render form', () => {
   expect(input).toBeDefined()
 })
 
-test('It should render result from input', () => {
+test('It should render result', () => {
   const { input, getByTestId } = setup()
   const result = getByTestId('convert-result')
   const buttonSubmit = getByTestId("convert-submit-button");

@@ -1,5 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const Input = styled.input`
+  background-color: white;
+  border: 1px solid lightblue;
+  padding: 20px;
+`
+const Button = styled.button`
+  padding: 20px;
+  background-color: lightblue;
+  border: none;
+  color: white;
+  font-family: 'Margarine';
+`
+
 
 export default class ConvertForm extends Component {
   static propTypes = {
@@ -19,15 +34,15 @@ export default class ConvertForm extends Component {
     const { onClickSubmit } = this.props
     return (
       <form>
-      <input 
+      <Input 
         value={value}
         onChange={this.handleOnChange}
         type="number"
          aria-label="dollar-input"
       />
-      <button data-testid="convert-submit-button" onClick={onClickSubmit(value)}>
+      <Button data-testid="convert-submit-button" onClick={onClickSubmit(value)}>
         Convert
-      </button>
+      </Button>
       </form>
 
     )
