@@ -13,6 +13,7 @@ const Container = styled.div`
 `
 const Title = styled.p`
   color: gray;
+  margin-top: 0;
   font-size: 24px;
 `
 const TextResult = styled.p`
