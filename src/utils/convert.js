@@ -25,6 +25,12 @@ const rates = [
     singularUnit: 'bill'
   },
   {
+    value: 5,
+    label: '5 dollar',
+    pluralUnit: 'bills',
+    singularUnit: 'bill'
+  },
+  {
     value: 1,
     label: '1 dollar',
     pluralUnit: 'bills',
